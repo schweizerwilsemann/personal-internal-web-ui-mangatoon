@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import mime from 'mime-types';
 
-const mangaDirectory = path.join(process.cwd(), '..');
+const mangaDirectory = process.env.MANGA_PATH || path.join(process.cwd(), '..');
 
 export async function GET(request: Request, context: { params: Promise<{ chapter: string; image: string }> }) {
   const { chapter, image } = await context.params;

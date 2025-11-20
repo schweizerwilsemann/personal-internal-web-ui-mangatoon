@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import mime from 'mime-types';
 
-const mangaDirectory = path.join(process.cwd(), '..');
+const mangaDirectory = process.env.MANGA_PATH || path.join(process.cwd(), '..');
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -21,7 +21,7 @@ export async function GET(request: Request) {
     const resolvedPath = path.resolve(imagePath);
     const resolvedMangaDir = path.resolve(mangaDirectory);
     if (!resolvedPath.startsWith(resolvedMangaDir)) {
-        return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     const fileBuffer = await fs.readFile(imagePath);

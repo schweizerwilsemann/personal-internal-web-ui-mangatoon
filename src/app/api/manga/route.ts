@@ -3,8 +3,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import sizeOf from 'image-size';
 
-const mangaDirectory = path.join(process.cwd(), '..');
-const projectFolderName = path.basename(process.cwd());
+const mangaDirectory = process.env.MANGA_PATH || path.join(process.cwd(), '..');
+// Hardcode project folder name để loại trừ khỏi danh sách manga
+const projectFolderName = 'web-ui-mangatoon';
 
 // Helper function to check if a path is a directory
 async function isDirectory(filePath: string) {
