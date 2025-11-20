@@ -1,0 +1,19 @@
+services:
+  nextapp:
+    build: .
+    container_name: next-reader
+    ports:
+      - "3999:3999"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      # Map thư mục manga từ Windows vào container
+      # Trong WSL, đường dẫn Windows E:\ được mount tại /mnt/e/
+      - /mnt/e/210 Doujinshi:/manga
+
+    command: yarn dev -p 3999
+
+    environment:
+      - NODE_ENV=development
+      - MANGA_PATH=/manga
+    restart: unless-stopped
