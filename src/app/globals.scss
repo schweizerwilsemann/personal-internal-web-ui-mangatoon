@@ -1,0 +1,16 @@
+// app/globals.scss
+$primary-color: #e63946;
+$secondary-color: #457b9d;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
