@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from './page.module.scss';
+import styles from '@/styles/app/page.module.scss';
 
 export default function Home() {
   const [mangaList, setMangaList] = useState<string[]>([]);
