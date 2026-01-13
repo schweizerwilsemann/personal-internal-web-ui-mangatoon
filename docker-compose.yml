@@ -9,7 +9,7 @@ services:
       - /app/node_modules
       # Map thư mục manga từ Windows vào container
       # Trong WSL, đường dẫn Windows E:\ được mount tại /mnt/e/
-      - /mnt/e/210 Doujinshi:/manga
+      - /run/media/null/multi210s/210 Doujinshi:/manga
 
     command: yarn dev -p 3999
 
